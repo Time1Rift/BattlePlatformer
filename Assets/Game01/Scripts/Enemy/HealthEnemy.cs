@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HealthEnemy : MonoBehaviour
 {
-    private int _maxHealth = 2;
+    [SerializeField] private Dead _dead;
+
     private int _currentHealth = 2;
 
     public void TakeDamage()
@@ -12,6 +13,9 @@ public class HealthEnemy : MonoBehaviour
         _currentHealth--;
 
         if (_currentHealth <= 0)
+        {
+            Instantiate(_dead, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
     }
 }

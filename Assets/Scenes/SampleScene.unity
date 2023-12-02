@@ -219,11 +219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3735390178141246923, guid: 9dd696bd60bf2da4192dffb6434d68c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.48
+      value: -17.15
       objectReference: {fileID: 0}
     - target: {fileID: 3735390178141246923, guid: 9dd696bd60bf2da4192dffb6434d68c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6
+      value: -1.66
       objectReference: {fileID: 0}
     - target: {fileID: 3735390178141246923, guid: 9dd696bd60bf2da4192dffb6434d68c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b8cbca12d73ac448c4e1cceacb56aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dead: {fileID: 7741419653073151313, guid: db88db6850c29144598dc11d6f9e49ed, type: 3}
 --- !u!4 &275155158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1794006080251429246, guid: 540d44243cf49f348a976e644c622938, type: 3}
@@ -7498,8 +7499,8 @@ Tilemap:
   - first: {x: -4, y: -5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileIndex: 4
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8295,21 +8296,11 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -4, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -3, y: -4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileIndex: 4
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18749,19 +18740,19 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 32
+  - m_RefCount: 30
     m_Data: {fileID: 11400000, guid: 33ec2b05aed6ce54798a0f17c661f8a8, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: dbd12c47406d66c4d837cd67f6157a9f, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 70ef95d2121c6204d95aeb88bfbc0504, type: 2}
-  - m_RefCount: 35
+  - m_RefCount: 37
     m_Data: {fileID: 11400000, guid: bb3520a55781a954abe89b92bcdc313f, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 441afb49a6a3c8e41820d8d218442054, type: 2}
   - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: 6106597909d47804dad36a5aab5d99b8, type: 2}
-  - m_RefCount: 1472
+  - m_RefCount: 1471
     m_Data: {fileID: 11400000, guid: f507f9c2862ce4846baef785fb27a5f1, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: ebb04c796935ff349956ff30bf515073, type: 2}
@@ -18770,7 +18761,7 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 32
+  - m_RefCount: 30
     m_Data: {fileID: 21300002, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 21300022, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
@@ -18780,16 +18771,16 @@ Tilemap:
     m_Data: {fileID: 21300004, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 21300024, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-  - m_RefCount: 35
+  - m_RefCount: 37
     m_Data: {fileID: 21300000, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-  - m_RefCount: 1472
+  - m_RefCount: 1471
     m_Data: {fileID: 21300046, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300068, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 21300026, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1561
+  - m_RefCount: 1560
     m_Data:
       e00: 1
       e01: 0
@@ -18808,7 +18799,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1561
+  - m_RefCount: 1560
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -18917,7 +18908,11 @@ CompositeCollider2D:
         Y: -100000000
       - X: 400000000
         Y: -100000000
-    - - X: -300000000
+    - - X: -40000000
+        Y: -40000000
+      - X: -40000000
+        Y: -30000000
+      - X: -300000000
         Y: -30000000
       - X: -300000000
         Y: 20000000
@@ -19129,6 +19124,10 @@ CompositeCollider2D:
         Y: -28125000
       - X: 20000000
         Y: -30000000
+      - X: -30000000
+        Y: -30000000
+      - X: -30000000
+        Y: -40000000
     - - X: -220000000
         Y: 20000000
       - X: -210000000
@@ -19199,7 +19198,9 @@ CompositeCollider2D:
       - {x: 39.999973, y: 15}
       - {x: -40, y: 14.999971}
       - {x: -39.999973, y: -10}
-    - - {x: 2, y: -2.9999707}
+    - - {x: -3, y: -3.9999704}
+      - {x: -4, y: -3.9999704}
+      - {x: -4.000029, y: -3}
       - {x: -30, y: -2.9999707}
       - {x: -30.000029, y: 2}
       - {x: -31, y: 2.0000293}
@@ -19305,6 +19306,8 @@ CompositeCollider2D:
       - {x: 2.9999707, y: -2.375}
       - {x: 2.8749945, y: -2.3750029}
       - {x: 2, y: -2.8125167}
+      - {x: 1.9999707, y: -3}
+      - {x: -3, y: -3.0000293}
     - - {x: -22.000029, y: 1}
       - {x: -21.999971, y: 2}
       - {x: -21, y: 1.9999707}
@@ -19575,6 +19578,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb7162a5dcffc242b2ec534e9f453ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healPlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1797335245}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 067458bd56c5b0947ad11c2459ecc921, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1797335258
 MonoBehaviour:
   m_ObjectHideFlags: 0
