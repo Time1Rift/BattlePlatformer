@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HitPlayer : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.TryGetComponent<HealthEnemy>(out HealthEnemy enemy))
+        if (collision.TryGetComponent<HealthEnemy>(out HealthEnemy enemy))
         {
             enemy.TakeDamage();
         }

@@ -6,7 +6,7 @@ public class Dead : MonoBehaviour
 {
     private void Start()
     {
-        int lifetime = 1;
+        float lifetime = 1f;
         Destroy(gameObject, lifetime);
     }
 }

@@ -13,9 +13,13 @@ public class HealthPlayer : MonoBehaviour
     public void TakeDamage()
     {
         _currentHealth--;
+        Debug.Log("Здоровья - " + _currentHealth);
 
         if (_currentHealth <= 0)
-            gameObject.SetActive(false);
+        {
+            Debug.Log("Вы проиграли");
+            gameObject.GetComponentInParent<Player>().gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +33,7 @@ public class HealthPlayer : MonoBehaviour
                 _healPlayer?.Invoke();
                 Destroy(collision.gameObject);
                 _currentHealth++;
+                Debug.Log("Здоровья - " + _currentHealth);
             }
         }
     }

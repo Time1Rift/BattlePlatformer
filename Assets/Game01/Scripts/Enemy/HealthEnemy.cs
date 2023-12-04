@@ -15,7 +15,7 @@ public class HealthEnemy : MonoBehaviour
         if (_currentHealth <= 0)
         {
             Instantiate(_dead, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Destroy(gameObject.GetComponentInParent<Enemy>().gameObject);
         }
     }
 }
