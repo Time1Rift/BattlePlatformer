@@ -7,6 +7,12 @@ public class HealthEnemy : MonoBehaviour
     [SerializeField] private Dead _dead;
 
     private int _currentHealth = 2;
+    private Enemy _parentEnemy;
+
+    private void Awake()
+    {
+        _parentEnemy = GetComponentInParent<Enemy>();
+    }
 
     public void TakeDamage()
     {
@@ -15,7 +21,7 @@ public class HealthEnemy : MonoBehaviour
         if (_currentHealth <= 0)
         {
             Instantiate(_dead, transform.position, Quaternion.identity);
-            Destroy(gameObject.GetComponentInParent<Enemy>().gameObject);
+            Destroy(_parentEnemy.gameObject);
         }
     }
 }

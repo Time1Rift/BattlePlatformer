@@ -9,6 +9,12 @@ public class HealthPlayer : MonoBehaviour
 
     private int _maxHealth = 3;
     private int _currentHealth = 3;
+    private Player _parentPlayer;
+
+    private void Awake()
+    {
+        _parentPlayer = GetComponentInParent<Player>();
+    }
 
     public void TakeDamage()
     {
@@ -18,7 +24,7 @@ public class HealthPlayer : MonoBehaviour
         if (_currentHealth <= 0)
         {
             Debug.Log("Вы проиграли");
-            gameObject.GetComponentInParent<Player>().gameObject.SetActive(false);
+            _parentPlayer.gameObject.SetActive(false);
         }
     }
 

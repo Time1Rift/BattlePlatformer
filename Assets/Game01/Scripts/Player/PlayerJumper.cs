@@ -8,13 +8,13 @@ public class PlayerJumper : MonoBehaviour
     [SerializeField] private float _jumpForce;
 
     private Animator _animator;
-    private Rigidbody2D _rigidbody2D;
+    private Rigidbody2D _rigidBody2D;
     private bool _isGround;
     
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,7 +28,7 @@ public class PlayerJumper : MonoBehaviour
         if (_isGround && Input.GetKey(KeyCode.Space))
         {
             _animator.SetBool(AnimatorController.IsJump, true);
-            _rigidbody2D.AddForce(Vector2.up * _jumpForce);
+            _rigidBody2D.AddForce(Vector2.up * _jumpForce);
             _isGround = false;
         }
 

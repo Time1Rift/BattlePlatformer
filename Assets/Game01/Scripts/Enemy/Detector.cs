@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
+    private MoverEnemy _parentMoverEnemy;
+    private PatrollingEnemy _parentPatrollingEnemy;
+
+    private void Awake()
+    {
+        _parentMoverEnemy = GetComponentInParent<MoverEnemy>();
+        _parentPatrollingEnemy = GetComponentInParent<PatrollingEnemy>();
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerMover>())
-            transform.GetComponentInParent<MoverEnemy>().Movement(collision.transform.position);
+            _parentMoverEnemy.Movement(collision.transform.position);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerMover>())
-            transform.GetComponentInParent<PatrollingEnemy>().enabled = true;
+            _parentPatrollingEnemy.enabled = true;
     }
 }
