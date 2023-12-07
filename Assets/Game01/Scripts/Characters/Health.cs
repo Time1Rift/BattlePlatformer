@@ -5,18 +5,18 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _currentHealth = 3;
+    [SerializeField] private int _maxHealth = 3;
     [SerializeField] private Dead _dead;
     [SerializeField] private UnityEvent _healPlayer;
 
     private int _powerHeal = 1;
-    private int _maxHealth;
+    private int _currentHealth;
 
     public int CurrentHealth { get; private set; }
 
     private void Start()
     {
-        _maxHealth = _currentHealth;
+        _currentHealth = _maxHealth;
     }
 
     public void GetHurt()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class healingBerries : MonoBehaviour
+public class HealingBerries : MonoBehaviour
 {
     private Health _health;
 

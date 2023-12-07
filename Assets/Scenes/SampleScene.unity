@@ -249,7 +249,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1633032872456311437, guid: 9dd696bd60bf2da4192dffb6434d68c3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2070,6 +2071,14 @@ PrefabInstance:
     - target: {fileID: 5300289921320561642, guid: 177ee5d4090e9004db00140e0d35c3e5, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398365570882280895, guid: 177ee5d4090e9004db00140e0d35c3e5, type: 3}
+      propertyPath: m_Size.y
+      value: 2.41811
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398365570882280895, guid: 177ee5d4090e9004db00140e0d35c3e5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.3962611
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
