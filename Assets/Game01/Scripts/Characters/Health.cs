@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,32 +8,52 @@ public class Health : MonoBehaviour
     [SerializeField] private Dead _dead;
     [SerializeField] private UnityEvent _healPlayer;
 
-    private int _powerHeal = 1;
+    private int _powerHeal = 10;
     private int _currentHealth;
 
-    public int CurrentHealth { get; private set; }
+    public int CurrentHealth => _currentHealth;
+    public int MaxHealth => _maxHealth;
 
-    private void Start()
+    public event Action HealthChanged;
+
+    private void Awake()
     {
         _currentHealth = _maxHealth;
     }
 
-    public void GetHurt()
+    private void OnValidate()
     {
-        _currentHealth--;
+        int minValue = 1;
+
+        if (_maxHealth <= 0)
+            _maxHealth = minValue;
+    }
+
+    public void GetHurt(int damage)
+    {
+        _currentHealth -= damage;
 
         if (_currentHealth <= 0)
         {
+            _currentHealth = 0;
+            HealthChanged?.Invoke();
             Instantiate(_dead, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+
+        HealthChanged?.Invoke();
     }
 
-    public bool CanHeal() => _currentHealth + _powerHeal <= _maxHealth;
+    public bool CanHeal() => _currentHealth < _maxHealth;
 
     public void Heal(Collider2D collider)
     {
+        if (_currentHealth + _powerHeal >= _maxHealth)
+            _currentHealth = _maxHealth;
+        else
             _currentHealth += _powerHeal;
-            _healPlayer?.Invoke();
+
+        _healPlayer?.Invoke();
+        HealthChanged?.Invoke();
     }
 }

@@ -11,5 +11,5 @@ public class Body : MonoBehaviour
         _healthParent = GetComponentInParent<Health>();
     }
 
-    public void TakeDamage() => _healthParent.GetHurt();
+    public void TakeDamage(int damage) => _healthParent.GetHurt(damage);
 }

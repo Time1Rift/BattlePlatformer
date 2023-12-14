@@ -90,7 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb7162a5dcffc242b2ec534e9f453ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 8604793598018297239}
 --- !u!1 &5300289921320561642
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91dbbc01b5b8a64db8f1d6ac5faacea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 2
+  _maxHealth: 2
   _dead: {fileID: 7741419653073151313, guid: db88db6850c29144598dc11d6f9e49ed, type: 3}
   _healPlayer:
     m_PersistentCalls:
@@ -476,7 +475,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.7926254, y: 0.15639687}
+  m_Offset: {x: 0.7926254, y: 0.3962611}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -487,7 +486,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.748833, y: 1.938381}
+  m_Size: {x: 10.748833, y: 2.41811}
   m_EdgeRadius: 0
 --- !u!114 &303726665789430125
 MonoBehaviour:

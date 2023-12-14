@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private int _damage = 1;
+
     private int _invulnerability = 3;
     private int _value;
 
@@ -20,7 +22,7 @@ public class Weapon : MonoBehaviour
         {
             if (_invulnerability <= _value)
             {
-                player.TakeDamage();
+                player.TakeDamage(_damage);
                 _value = 0;
             }
         }

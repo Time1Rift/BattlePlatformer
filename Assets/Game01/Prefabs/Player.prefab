@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19de3cbf92f2b46a1315dd0987c114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!1 &3735754065684625533
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +315,7 @@ Transform:
   - {fileID: 8695717182956177933}
   - {fileID: 7699526239212746812}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7332622554715902568
 SpriteRenderer:
@@ -582,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468040664d2ccc3429e6fd1b5e3fdb8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 400
+  _jumpForce: 350
 --- !u!114 &6639463914928730603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91dbbc01b5b8a64db8f1d6ac5faacea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 3
+  _maxHealth: 200
   _dead: {fileID: 7741419653073151313, guid: db88db6850c29144598dc11d6f9e49ed, type: 3}
   _healPlayer:
     m_PersistentCalls:
