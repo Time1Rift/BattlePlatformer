@@ -316,7 +316,7 @@ Transform:
   - {fileID: 7699526239212746812}
   - {fileID: 4220810807780003070}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7332622554715902568
 SpriteRenderer:
@@ -679,7 +679,11 @@ PrefabInstance:
       objectReference: {fileID: 6415550618967421859}
     - target: {fileID: 6813882733019002976, guid: 02b6f18f57cf8d54284f397f58a78973, type: 3}
       propertyPath: m_Name
-      value: CanvasHealthBar
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343007009837236649, guid: 02b6f18f57cf8d54284f397f58a78973, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8561487730794204387, guid: 02b6f18f57cf8d54284f397f58a78973, type: 3}
       propertyPath: m_Pivot.x
