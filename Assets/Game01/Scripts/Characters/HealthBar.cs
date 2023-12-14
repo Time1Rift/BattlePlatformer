@@ -6,9 +6,14 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] protected Health _health;
     [SerializeField] protected Slider _slider;
-    [SerializeField] protected TextMeshProUGUI _text;
 
+    protected TextMeshProUGUI _text;
     protected char _symbol = '/';
+
+    private void Awake()
+    {
+        _text = GetComponentInChildren<TextMeshProUGUI>();
+    }
 
     protected void Start()
     {
