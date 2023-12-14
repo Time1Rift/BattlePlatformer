@@ -254,17 +254,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dd696bd60bf2da4192dffb6434d68c3, type: 3}
---- !u!114 &73957930 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6415550618967421859, guid: 9dd696bd60bf2da4192dffb6434d68c3, type: 3}
-  m_PrefabInstance: {fileID: 73957929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e91dbbc01b5b8a64db8f1d6ac5faacea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &73957931 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5247236631688438944, guid: 9dd696bd60bf2da4192dffb6434d68c3, type: 3}
@@ -2797,6 +2786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963656787}
   - component: {fileID: 963656788}
+  - component: {fileID: 963656789}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -2830,14 +2820,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 963656786}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12cd90e5ee57052469e2dda91529aac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1747243796}
+  _slider: {fileID: 1788660719}
+  _text: {fileID: 1233706673}
+--- !u!114 &963656789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963656786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88f80c8a49f51f541823063c395d1305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 73957930}
-  _slider: {fileID: 1788660719}
-  _text: {fileID: 1233706673}
-  _sliderSlowly: {fileID: 1052195747}
-  _textSlowly: {fileID: 653089985}
+  _health: {fileID: 1747243796}
+  _slider: {fileID: 1052195747}
+  _text: {fileID: 653089985}
 --- !u!1 &1052195744
 GameObject:
   m_ObjectHideFlags: 0
@@ -25402,6 +25405,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1747243796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6415550618967421859, guid: 9dd696bd60bf2da4192dffb6434d68c3, type: 3}
+  m_PrefabInstance: {fileID: 73957929}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91dbbc01b5b8a64db8f1d6ac5faacea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1785673506
 GameObject:
   m_ObjectHideFlags: 0
@@ -25556,7 +25570,7 @@ GameObject:
   - component: {fileID: 1872017524}
   - component: {fileID: 1872017523}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: CanvasHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

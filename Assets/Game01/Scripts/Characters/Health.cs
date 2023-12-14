@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
             _maxHealth = minValue;
     }
 
-    public void GetHurt(int damage)
+    public void SetHurt(int damage)
     {
         _currentHealth -= damage;
 
