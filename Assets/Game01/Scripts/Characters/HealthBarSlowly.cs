@@ -8,7 +8,6 @@ public class HealthBarSlowly : HealthBar
     protected override void OnDisable()
     {
         base.OnDisable();
-
         StopChangeValueSlowly();
     }
 
