@@ -23,19 +23,22 @@ public class VampirismAbility : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out MoverEnemy enemy))
-        {
-            Health _enemyHeailth = enemy.GetComponent<Health>();
-            float damageInTick = _abilityForce * Time.fixedDeltaTime;
-
-            _enemyHeailth.Take(damageInTick);
-            _health.Heal(damageInTick);
-        }
+            UseAbility(enemy);
     }
 
     public void OnClickAbility()
     {
         if (!Input.GetKeyDown(KeyCode.Space))
             StartCoroutine(LaunchCooldown());
+    }
+
+    private void UseAbility(MoverEnemy enemy)
+    {
+        Health _enemyHeailth = enemy.GetComponent<Health>();
+        float damageInTick = _abilityForce * Time.fixedDeltaTime;
+
+        _enemyHeailth.Take(damageInTick);
+        _health.Heal(damageInTick);
     }
 
     private IEnumerator LaunchCooldown()
