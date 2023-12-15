@@ -6,14 +6,13 @@ using System.Collections;
 public class VampirismAbility : MonoBehaviour
 {
     [SerializeField] private Button _button;
-    [SerializeField] private TypesLayers _purposeAttack = (TypesLayers)8;
+    [SerializeField] private LayerMask _purposeAttack;
 
     private float _abilityDuration = 6f;
     private float _abilityCooldown = 10f;
     private int _abilityForce = 10;
     private Health _health;
     private Collider2D _collider2D;
-    private Coroutine _launchCooldown;
 
     private void Awake()
     {
@@ -24,24 +23,20 @@ public class VampirismAbility : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Health enemy) && enemy.gameObject.layer == (int)_purposeAttack)
+        if (collision.TryGetComponent(out Health enemy) && _purposeAttack == (_purposeAttack | (1 << enemy.gameObject.layer)))
             UseAbility(enemy);
     }
 
     public void OnClickAbility()
     {
-        if (_launchCooldown != null)
-            StopCoroutine(_launchCooldown);
-
-        _launchCooldown = StartCoroutine(LaunchCooldown());
+        StartCoroutine(LaunchCooldown());
     }
 
     private void UseAbility(Health enemy)
     {
-        Health _enemyHeailth = enemy;
         float damageInTick = _abilityForce * Time.fixedDeltaTime;
 
-        _enemyHeailth.Take(damageInTick);
+        enemy.Take(damageInTick);
         _health.Heal(damageInTick);
     }
 

@@ -669,7 +669,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2861259580562646437}
   - component: {fileID: 5429443428454014966}
-  - component: {fileID: 3444297060755943996}
   m_Layer: 0
   m_Name: VampireAbility
   m_TagString: Untagged
@@ -727,19 +726,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &3444297060755943996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5149926789513532406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16513e17173ee964b8e33adcfffc31c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _button: {fileID: 0}
 --- !u!1001 &5495472004058431517
 PrefabInstance:
   m_ObjectHideFlags: 0
