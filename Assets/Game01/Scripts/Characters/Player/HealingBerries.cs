@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class HealingBerries : MonoBehaviour
 {
+    [SerializeField] private int _powerHeal = 10;
+
     private Health _health;
 
     private void Awake()
@@ -10,16 +12,7 @@ public class HealingBerries : MonoBehaviour
         _health = GetComponent<Health>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<Berry>(out Berry berry))
-        {
-            if (_health.CanHeal() && berry._isUsed == false)
-            {
-                berry.Use();
-                Destroy(collision.gameObject);
-                _health.Heal(collision);
-            }
-        }
-    }
+    public void HealBerry() => _health.Heal(_powerHeal);
+
+    public bool CanHealBerry() => _health.CanHeal();
 }

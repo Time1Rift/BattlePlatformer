@@ -13,13 +13,13 @@ public class Detector : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerMover>())
+        if (collision.GetComponent<Movement>())
             _parentMoverEnemy.Movement(collision.transform.position);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerMover>())
+        if (collision.GetComponent<Movement>())
             _parentPatrollingEnemy.enabled = true;
     }
 }

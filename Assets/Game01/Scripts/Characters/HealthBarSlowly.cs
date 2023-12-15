@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class HealthBarSlowly : HealthBar
 {
+    [SerializeField] private float _step = 0.1f;
+
     private Coroutine _changeValueSlowly;
 
     protected override void OnDisable()
@@ -26,11 +28,9 @@ public class HealthBarSlowly : HealthBar
 
     private IEnumerator SlowlyShiftValues(float targetValue)
     {
-        float step = 0.1f;
-
         while (_slider.value != targetValue)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, targetValue, step * Time.deltaTime);
+            _slider.value = Mathf.MoveTowards(_slider.value, targetValue, _step * Time.deltaTime);
             _text.text = Mathf.Round(_slider.value * _health.MaxHealth).ToString() + _symbol + _health.MaxHealth.ToString();
             yield return null;
         }

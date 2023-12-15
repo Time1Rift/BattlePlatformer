@@ -1,46 +1,41 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(Animator), typeof(IsGround))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
     private readonly string Horizontal = nameof(Horizontal);
-    private readonly string Jump = nameof(Jump);
 
     [SerializeField] private float _speedMove = 5;
     [SerializeField] private float _jumpForce = 8;
-    [SerializeField] private float _gravityForce = 9.8f;
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private IsGround _isGround;
-
-    private Vector2 _moveDirection;
+    private Rigidbody2D _rigidbody2D;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _isGround = GetComponent<IsGround>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         if (_isGround.IsGrouded())
         {
+            _animator.SetBool(AnimatorController.IsJump, false);
             Move();
 
-            if (Input.GetButton(Jump))
+            if (Input.GetKeyDown(KeyCode.Space))
                 JumpUp();
         }
-
-        _moveDirection.y -= _gravityForce * Time.deltaTime;
-        transform.Translate(_moveDirection * Time.deltaTime);
-
-        if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        else
+        {
             _animator.SetBool(AnimatorController.IsRun, false);
-
-        if (!Input.GetKey(KeyCode.Space))
-            _animator.SetBool(AnimatorController.IsJump, false);
+        }
     }
 
     private void Move()
@@ -57,16 +52,17 @@ public class Movement : MonoBehaviour
             _spriteRenderer.flipX = false;
             _animator.SetBool(AnimatorController.IsRun, true);
         }
+        else if (horizontalInput == 0)
+        {
+            _animator.SetBool(AnimatorController.IsRun, false);
+        }
 
-        Vector2 inputDirection = new Vector2(horizontalInput, 0);
-        inputDirection = transform.TransformDirection(inputDirection);
-        _moveDirection = inputDirection * _speedMove;
+        _rigidbody2D.velocity = new Vector2(horizontalInput * _speedMove, _rigidbody2D.velocity.y);
     }
 
     private void JumpUp()
     {
-        _animator.SetBool(AnimatorController.IsRun, false);
         _animator.SetBool(AnimatorController.IsJump, true);
-        _moveDirection.y = _jumpForce;
+        _rigidbody2D.AddForce(transform.up * _jumpForce, ForceMode2D.Impulse);
     }
 }

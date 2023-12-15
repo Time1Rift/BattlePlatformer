@@ -2,7 +2,20 @@ using UnityEngine;
 
 public class Berry : MonoBehaviour
 {
-    public bool _isUsed { get; private set; } = false;
+    private bool _isUsed  = false;
 
-    public void Use() => _isUsed = true;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out HealingBerries healingBerries) == false)
+            return;
+
+        if(_isUsed == false && healingBerries.CanHealBerry())
+        {
+            Use();
+            Destroy(gameObject);
+            healingBerries.HealBerry();
+        }
+    }
+
+    private void Use() => _isUsed = true;
 }

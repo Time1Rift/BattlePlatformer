@@ -8,10 +8,9 @@ public class Health : MonoBehaviour
     [SerializeField] private Dead _dead;
     [SerializeField] private UnityEvent _healPlayer;
 
-    private int _powerHeal = 10;
-    private int _currentHealth;
+    private float _currentHealth;
 
-    public int CurrentHealth => _currentHealth;
+    public float CurrentHealth => _currentHealth;
     public int MaxHealth => _maxHealth;
 
     public event Action HealthChanged;
@@ -29,31 +28,40 @@ public class Health : MonoBehaviour
             _maxHealth = minValue;
     }
 
-    public void Take(int damage)
+    public void Take(float damage)
     {
+        float timerDeath = 0.8f;
+
         _currentHealth -= damage;
 
         if (_currentHealth <= 0)
         {
             _currentHealth = 0;
             HealthChanged?.Invoke();
-            Instantiate(_dead, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Invoke(nameof(Die), timerDeath);            
         }
-
-        HealthChanged?.Invoke();
+        else
+        {
+            HealthChanged?.Invoke();
+        }
     }
 
     public bool CanHeal() => _currentHealth < _maxHealth;
 
-    public void Heal(Collider2D collider)
+    public void Heal(float powerHeal)
     {
-        if (_currentHealth + _powerHeal >= _maxHealth)
+        if (_currentHealth + powerHeal >= _maxHealth)
             _currentHealth = _maxHealth;
         else
-            _currentHealth += _powerHeal;
+            _currentHealth += powerHeal;
 
         _healPlayer?.Invoke();
         HealthChanged?.Invoke();
+    }
+
+    private void Die()
+    {
+        Instantiate(_dead, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

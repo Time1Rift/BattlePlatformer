@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class IsGround : MonoBehaviour
 {
-    [SerializeField] private Vector2 _sizeBox = new Vector2(1, 0.13f);
+    [SerializeField] private Vector2 _sizeBox = new Vector2(1.1f, 0.13f);
     [SerializeField] private LayerMask _groundMask;
 
     private float _angleBox = 0; 

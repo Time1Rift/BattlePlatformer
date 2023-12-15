@@ -14,14 +14,14 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _value++;
+        _value++;        
 
-        if (collision.TryGetComponent<Body>(out Body player))
+        if (collision.TryGetComponent(out Body player))
         {
             if (_invulnerability <= _value)
             {
-                player.TakeDamage(_damage);
                 _value = 0;
+                player.TakeDamage(_damage);
             }
         }
     }
