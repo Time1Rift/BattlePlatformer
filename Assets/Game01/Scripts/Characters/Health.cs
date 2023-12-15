@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
 
     public void Take(float damage)
     {
-        float timerDeath = 0.8f;
+        float timerDeath = 0.5f;
 
         _currentHealth -= damage;
 

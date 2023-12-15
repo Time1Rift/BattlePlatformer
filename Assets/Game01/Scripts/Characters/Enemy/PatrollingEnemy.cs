@@ -21,15 +21,15 @@ public class PatrollingEnemy : MonoBehaviour
 
     private void Update()
     {
-        Transform target = _points[_currentPoint];
-        transform.position = Vector3.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
+        Vector3 target = _points[_currentPoint].position;
+        transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime);
 
-        if (transform.position.x < target.position.x)
+        if (transform.position.x < target.x)
             _spriteRenderer.flipX = true;
         else
             _spriteRenderer.flipX = false;
 
-        if (transform.position == target.position)
+        if (transform.position == target)
         {
             _currentPoint++;
 

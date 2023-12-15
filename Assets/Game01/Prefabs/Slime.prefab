@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91dbbc01b5b8a64db8f1d6ac5faacea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 15
+  _maxHealth: 100
   _dead: {fileID: 7741419653073151313, guid: db88db6850c29144598dc11d6f9e49ed, type: 3}
   _healPlayer:
     m_PersistentCalls:

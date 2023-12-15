@@ -36,6 +36,5 @@ public class ControllerVampirismAbility : MonoBehaviour
 
         yield return abilityCooldown;
         _button.interactable = true;
-        StopCoroutine(_launchCooldown);
     }
 }
