@@ -8,8 +8,9 @@ public class VampirismAbility : MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] private LayerMask _purposeAttack;
 
+    private Timer _timer;
     private float _abilityDuration = 6f;
-    private float _abilityCooldown = 10f;
+    private float _abilityCooldown = 4f;
     private int _abilityForce = 10;
     private Health _health;
     private Collider2D _collider2D;
@@ -19,6 +20,7 @@ public class VampirismAbility : MonoBehaviour
         _collider2D = GetComponent<Collider2D>();
         _health = GetComponentInParent<Health>();
         _collider2D.enabled = false;
+        _timer = _button.GetComponentInChildren<Timer>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -30,6 +32,7 @@ public class VampirismAbility : MonoBehaviour
     public void OnClickAbility()
     {
         StartCoroutine(LaunchCooldown());
+        _timer.OnSwitch(_abilityCooldown + _abilityDuration);
     }
 
     private void UseAbility(Health enemy)
