@@ -20,9 +20,6 @@ public class MoverEnemy : MonoBehaviour
         _patrollingEnemy.enabled = false;
         transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime);
 
-        if (transform.position.x < target.x)
-            _spriteRenderer.flipX = true;
-        else
-            _spriteRenderer.flipX = false;
+        _spriteRenderer.flipX = transform.position.x < target.x ? true : false;
     }
 }
