@@ -3,30 +3,33 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PatrollingEnemy : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField, Min(0)] private float _speed;
     [SerializeField] private Transform _path;
 
     private SpriteRenderer _spriteRenderer;
-    private Transform[] _points;
+    private Vector3[] _points;
     private int _currentPoint;
+    private Vector3 _target;
+    private Transform _transform;
 
     private void Start()
     {
+        _transform = transform;
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _points = new Transform[_path.childCount];
+        _points = new Vector3[_path.childCount];
 
         for (int i = 0; i < _path.childCount; i++)
-            _points[i] = _path.GetChild(i);
+            _points[i] = _path.GetChild(i).position;
     }
 
     private void Update()
     {
-        Vector3 target = _points[_currentPoint].position;
-        transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime);
+        _target = _points[_currentPoint];
+        _transform.position = Vector3.MoveTowards(_transform.position, _target, _speed * Time.deltaTime);
 
-        _spriteRenderer.flipX = transform.position.x < target.x ? true : false;
+        _spriteRenderer.flipX = _transform.position.x < _target.x ? true : false;
 
-        if (transform.position == target)
+        if (_transform.position == _target)
         {
             _currentPoint++;
 
