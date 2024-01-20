@@ -4,13 +4,15 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class MoverEnemy : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField, Min(0)] private float _speed;
 
     private PatrollingEnemy _patrollingEnemy;
     private SpriteRenderer _spriteRenderer;
+    private Transform _transform;
 
     private void Start()
     {
+        _transform = transform;
         _patrollingEnemy = GetComponent<PatrollingEnemy>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -18,8 +20,8 @@ public class MoverEnemy : MonoBehaviour
     public void Movement(Vector2 target)
     {
         _patrollingEnemy.enabled = false;
-        transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime);
+        _transform.position = Vector3.MoveTowards(_transform.position, target, _speed * Time.deltaTime);
 
-        _spriteRenderer.flipX = transform.position.x < target.x ? true : false;
+        _spriteRenderer.flipX = _transform.position.x < target.x ? true : false;
     }
 }
